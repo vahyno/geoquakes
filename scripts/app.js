@@ -40,12 +40,17 @@ function onSuccess(json) {
       let time = quake.properties.time;
       let latNum= quake.geometry.coordinates[1];
       let lngNum = quake.geometry.coordinates[0];
-      let positionValue = {lat:latNum, lng:lngNum}
-
+      let positionValue = {lat:latNum, lng:lngNum};
+      let quakeIcon = { url: 'images/earthquake.png', // url
+                        scaledSize: new google.maps.Size(35,35), // scaled size
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(0,0) // anchor
+                      };
 
       var marker = new google.maps.Marker({
         position: positionValue,
-        map: map
+        map: map,
+        icon: quakeIcon,
       });
 
       console.log(positionValue);
